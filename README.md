@@ -1,5 +1,4 @@
 Commande utiles:
-
 git pull origin main // pour transférer de github a git
 git add . // pour ajouter au commit
 git status // pour vérifier le status des fichier a commit

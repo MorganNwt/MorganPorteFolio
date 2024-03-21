@@ -10,6 +10,19 @@ h2 {
   margin: auto;
 }
 
+.accueil_grid_paysages {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 300px 100px;
+  gap: 15px;
+}
+
+.accueil_grid_paysages img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .accueil_introduction h1 {
   margin-bottom: 15px;
 }
@@ -20,6 +33,15 @@ h2 {
 
 .accueil_introduction div {
   padding-right: 80px;
+}
+
+.accueil_section_photos {
+  background-color: white;
+}
+
+.accueil_section_photos h2 {
+  color: #242424;
+  margin-bottom: 80px;
 }
 
 .section_contact h2 {
