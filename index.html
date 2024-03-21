@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+
+<head>
+    <meta charset="utf-8" >
+    <title>Accueil - Nawrot Morgan </title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/portfolio.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="images/logoM1.png" alt="Logo de NAWROT Morgan" >
+            <div>
+                <a href="index.html">Accueil</a>
+                <a href="a_propos.html">À propos</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="Jeux.html">Jeux</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="accueil_introduction">
+            <div>
+                <h1>Morgan NAWROT Développeur WEB</h1>
+                <p>
+                    Où <em>professionalisme</em> s’allie avec <em>passion</em>. Depuis
+                    1 ans maintenant, j’exerce mon métier avec la passion
+                    qui m’anime.
+                </p>
+                <a href="#contact" class="cta">UN PROJET ? ÉCRIVEZ-MOI</a>
+            </div>
+            <img src="images/morgan.png" alt="Portrait avec la photo de morgan" >
+        </section>
+            <section class="portfolio_section_photos">
+                <h2>Vous avez 5 min ? Venez tester mon algorithme sur les jeux ci-dessous :</h2>
+                <div class="grid_paysages">
+                    <a href="pendu.html" class="lien_conteneur_photo">
+                        <img src="images/pendu.jpg" alt="Jeu du pendu">
+                        <div class="photo_hover">Jouer au Pendu</div>
+                    </a>
+                    <a href="mouton.html" class="lien_conteneur_photo">
+                        <img src="images/saute-mouton.pnj.jpeg" alt="Jeu du saute mouton" >
+                        <div class="photo_hover">Jouer au Saute Mouton</div>
+                    </a>
+                    <a href="images/travaux.png" class="lien_conteneur_photo">
+                        <img src="images/travaux.png" alt="En travaux" >
+                        <div class="photo_hover">Prochainement</div>
+                    </a>
+                </div>
+        </section>
+        <section id="contact" class="section_contact">
+            <h2>Parlons de votre projet</h2>
+            <form method="get" action="#">
+                <div class="form_nom_email">
+                    <div class="form_column">
+                        <label for="nom">nom</label>
+                        <input type="text" name="nom" id="nom" >
+                    </div>
+                    <div class="form_column">
+                        <label for="email">email</label>
+                        <input type="email" name="email" id="email" >
+                    </div>
+                </div>
+                <label for="message">message</label>
+                <textarea name="message" id="message" rows="10"></textarea>
+                <input type="submit" value="ENVOYER" class="cta" >
+            </form>
+        </section>
+    </main>
+    <footer>
+        <img src="images/logoM1.png" alt="Logo de NAWROT Morgan" >
+        <div>
+            <a target="_blank" href="https://twitter.com/" class="lien_icone">
+                <img src="images/twitter.png" alt="Logo Twitter" >
+            </a>
+            <a target="_blank" href="https://www.instagram.com/" class="lien_icone">
+                <img src="images/instagram.png" alt="Logo Instagram" >
+            </a>
+        </div>
+    </footer>
+
+    <script src="javascript/dico.js"></script>
+    <script src="javascript/pendu.js"></script>
+    <script src="javascript/mouton.js"></script>
+</body>
+
+</html>

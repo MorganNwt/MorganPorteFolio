@@ -1,0 +1,67 @@
+h2 {
+  text-align: center;
+}
+
+.accueil_introduction {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  align-items: flex-start;
+  margin: auto;
+}
+
+.accueil_introduction h1 {
+  margin-bottom: 15px;
+}
+
+.accueil_introduction p {
+  margin-bottom: 30px;
+}
+
+.accueil_introduction div {
+  padding-right: 80px;
+}
+
+.section_contact h2 {
+  color: #a5b4fc;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: auto;
+  color: white;
+}
+
+.form_nom_email {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.form_column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+input,
+textarea {
+  padding: 15px;
+  border-radius: 3px;
+  border: none;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input[type='submit'] {
+  width: 200px;
+  margin: auto;
+  margin-top: 30px;
+}
