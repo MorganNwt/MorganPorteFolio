@@ -2,6 +2,10 @@ h2 {
   text-align: center;
 }
 
+#jeux {
+  scroll-behavior: smooth;
+}
+
 .accueil_introduction {
   display: flex;
   flex-direction: row;
