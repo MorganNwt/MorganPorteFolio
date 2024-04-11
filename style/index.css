@@ -5,7 +5,7 @@ h2 {
 .accueil_introduction {
   display: flex;
   flex-direction: row;
-  width: 60%;
+  width: 62%;
   align-items: flex-start;
   margin: auto;
 }
