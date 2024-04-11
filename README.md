@@ -3,8 +3,8 @@ git init // pour créeer le git
 git remote remove origin // pour effacer le dépot
 ----------------------------------------------------------------------
 git remote add origin https://github.com/MorganNwt/TeamWork.git
->> git branch -M main    // les 3 lignes pour liée le git au github
->> git push -u origin main
+git branch -M main    // les 3 lignes pour liée le git au github
+git push -u origin main
 ---------------------------------------------------------
 git pull origin main // pour transférer de github a git
 git add . // pour ajouter au commit
