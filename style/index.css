@@ -2,8 +2,10 @@ h2 {
   text-align: center;
 }
 
-#jeux {
-  scroll-behavior: smooth;
+
+/* Création du défilement doux pour les ancres de la pages index */
+html {
+  scroll-behavior: smooth; 
 }
 
 .accueil_introduction {
@@ -90,4 +92,28 @@ input[type='submit'] {
   width: 200px;
   margin: auto;
   margin-top: 30px;
+}
+
+
+.lien_conteneur_photo {
+  position: relative;
+}
+
+.photo_hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  color: #a5b4fc;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+
+.lien_conteneur_photo:hover .photo_hover {
+  display: flex;
 }
