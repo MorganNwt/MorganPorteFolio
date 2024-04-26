@@ -49,4 +49,11 @@
 
 .lien_conteneur_photo:hover .photo_hover {
   display: flex;
+  z-index: 999; 
+}
+
+/*  test image en z index */
+
+.popup-image {
+  
 }
