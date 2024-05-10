@@ -51,3 +51,16 @@ h1,
 h2 {
   text-align: center;
 }
+
+@media (max-width: 1024px) {
+
+  .carre_contenu {
+    border-right: 1px solid #8e86b5;
+    border-bottom: 1px solid #8e86b5;
+    padding: 50px;
+    width: 75%;
+    margin-top: 50px;
+    margin-right: 50px;
+    margin-bottom: 80px;
+  }
+}

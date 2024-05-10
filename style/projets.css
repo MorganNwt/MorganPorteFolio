@@ -1,9 +1,12 @@
+.test{
+  border: 3px rgb(94, 218, 17) solid;
+}
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
-
 
 .container{
   position: relative;
@@ -19,7 +22,6 @@
   color: #a5b4fc;
   text-align: center;
   text-transform: capitalize;
-
 }
 
 .container .image_container{
@@ -28,8 +30,8 @@
   gap:15px;
   justify-content: center;
   padding:10px;
-
 }
+
 .container .image_container .image{
   height: 250px;
   width: 350px;
@@ -37,7 +39,6 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   overflow: hidden;
   cursor: pointer;
-
 }
 
 .container .image_container .image img{
@@ -79,8 +80,25 @@
   position: absolute;
   top:50%; left:50%;
   transform: translate(-50%, -50%);
-  border: 40px solid #fff;
+  border: 30px solid #fff;
   border-radius: 5px;
-  width: 750px;
+  width: 65%;
   object-fit: cover;
+}
+
+
+@media (min-width: 1025px) and (max-width:1054px ){
+  .container .image_container{
+    margin-left: -100px;
+    margin-right: -100px;
+
+  }
+} 
+
+@media (max-width: 1024px) {
+  .container .image_container{
+    transform: scale(0.9);
+    margin-left: -200px;
+    margin-right: -200px;
+  }
 }

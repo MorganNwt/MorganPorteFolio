@@ -11,7 +11,7 @@ html {
 .accueil_introduction {
   display: flex;
   flex-direction: row;
-  width: 62%;
+  width: 65%;
   align-items: flex-start;
   margin: auto;
 }
@@ -19,7 +19,6 @@ html {
 .accueil_grid_paysages {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 300px 100px;
   gap: 15px;
 }
 
@@ -117,3 +116,39 @@ input[type='submit'] {
 .lien_conteneur_photo:hover .photo_hover {
   display: flex;
 }
+
+@media (max-width: 1024px) {
+  .accueil_introduction {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    align-items: flex-start;
+    margin: auto;
+  }
+  
+  .accueil_grid_paysages {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  
+  }
+  
+  .accueil_grid_paysages img {
+    width: 1fr;
+    height: 1fr;
+    object-fit: cover;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    margin: auto;
+    color: white;
+  }
+
+
+}
+
+
+/* border: 3px solid greenyellow; */
