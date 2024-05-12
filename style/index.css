@@ -117,7 +117,7 @@ input[type='submit'] {
   display: flex;
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1366px) {
   .accueil_introduction {
     display: flex;
     flex-direction: row;
@@ -147,6 +147,26 @@ input[type='submit'] {
     color: white;
   }
 
-
 }
 /* border: 3px solid greenyellow; */
+
+@media (min-width: 375px) and (max-width:767px ) {
+  
+  .accueil_grid_paysages {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  
+  }
+  
+  .accueil_grid_paysages img {
+    width: 1fr;
+    height: 1fr;
+    object-fit: cover;
+  }
+
+  .img_morgan {
+    display: none;
+   }
+  
+}
