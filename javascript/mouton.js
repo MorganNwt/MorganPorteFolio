@@ -20,7 +20,7 @@ initialierPlateau();
 afficherPlateauDeJeu();
 // 3 - Jouer un coup
 //  Après avoir fait un déplacement je retourne un booléen qui vérifie si le joueur à gagné.
-// la fonction jouUnCoup() est executé au clic sur la balise 
+// la fonction jouerUnCoup() est executé au clic sur la balise 
 jouerUnCoup();
 
 

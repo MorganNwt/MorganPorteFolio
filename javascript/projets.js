@@ -1,4 +1,3 @@
-
 document.querySelectorAll('.image_container img').forEach(image => {
     image.onclick = () => {
         const popup = document.querySelector('.popup_image');
