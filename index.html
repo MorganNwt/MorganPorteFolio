@@ -21,12 +21,15 @@
 <body>
     <header>
         <nav>
-            <img src="images/logoM1.png" alt="Logo de NAWROT Morgan" >
+            <a href="../index.html" class="lien_icone">
+                <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
+            </a>
             <div>
-                <a class="hover_nav" href="index.html">Accueil</a>
-                <a class="hover_nav" href="views/a_propos.html">À propos</a>
-                <a class="hover_nav" href="views/projets.html">Projets</a>
-                <a class="hover_nav" href="#jeux">Jeux</a>
+                <a href="index.html">Accueil</a>
+                <a href="views/connexion.html">Connexion</a>
+                <a href="views/a_propos.html">À propos</a>
+                <a href="views/projets.html">Projets</a>
+                <a href="#jeux">Jeux</a>
             </div>
         </nav>
     </header>
@@ -66,22 +69,38 @@
             <form method="get" action="#">
                 <div class="form_nom_email">
                     <div class="form_column">
-                        <label for="nom">nom</label>
+                        <label for="nom">Nom :</label>
                         <input type="text" name="nom" id="nom" >
                     </div>
                     <div class="form_column">
-                        <label for="email">email</label>
+                        <label for="prenom">Prénom :</label>
+                        <input type="text" name="prenom" id="prenom" >
+                    </div>
+                </div>
+                <div class="form_nom_email">
+                    <div class="form_column">
+                        <label for="email">Email :</label>
                         <input type="email" name="email" id="email" >
                     </div>
+                    <div class="form_column">
+                        <label for="telephone">Téléphone :</label>
+                        <input type="tel" name="telephone" id="telephone" >
+                    </div>
+                </div>
+                <div class="form_column">
+                    <label for="sujet">Sujet :</label>
+                    <input type="text" name="sujet" id="sujet">
                 </div>
                 <label for="message">message</label>
                 <textarea name="message" id="message" rows="10"></textarea>
-                <input type="submit" value="ENVOYER" class="cta" >
+                <input type="submit" value="ENVOYER" class="cta">
             </form>
         </section>
     </main>
     <footer>
-        <img src="images/logoM1.png" alt="Logo de NAWROT Morgan" >
+        <a href="../index.html" class="lien_icone">
+            <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
+        </a>
         <div>
             <a target="_blank" href="https://twitter.com/" class="lien_icone">
                 <img src="images/twitter.png" alt="Logo Twitter" >
