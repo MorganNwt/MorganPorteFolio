@@ -46,17 +46,9 @@ footer {
   padding: 20px 30px;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 .cta:hover {
   background: linear-gradient(#696484, #8788ba);
   text-decoration: none;
-}
-
-.lien_icone {
-  margin-left: 30px;
 }
 
 .lien_icone:hover {
@@ -83,4 +75,10 @@ nav a {
 img {
   border-radius: 5px;
 }
+
+.red{
+  color: red;
+}
+
+
 
