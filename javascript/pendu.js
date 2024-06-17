@@ -107,7 +107,7 @@ function updatePendu() {
     var erreurAfficher = Math.min(nombreImage, erreursMax);
 
     // Changer l'image du pendu en fonction du nombre d'erreurs
-    cordeImage.src = "../images/p" + erreurAfficher + ".gif";
+    cordeImage.src = "../../images/p" + erreurAfficher + ".gif";
     console.log(' erreur: ' + erreurAfficher);
 
     // Appeler getColorForWrongAnswers pour obtenir la couleur de fond

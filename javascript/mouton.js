@@ -106,12 +106,12 @@ function afficherPlateauDeJeu() {
 
             case MOUTON_BLANC : 
                 // faire des doubles back slash \\ pour faire les chemins
-                dom_img.setAttribute('src', '../images/sheep_w.png');
+                dom_img.setAttribute('src', '../../images/sheep_w.png');
                 dom_img.setAttribute('alt', 'mouton blanc');
                 break;
             
             case MOUTON_NOIR: 
-                dom_img.setAttribute('src', '../images/sheep_b.png'); 
+                dom_img.setAttribute('src', '../../images/sheep_b.png'); 
                 dom_img.setAttribute('alt', 'mouton noir');
                 break;    
                 default: 

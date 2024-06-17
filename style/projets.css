@@ -1,5 +1,5 @@
 .test{
-  border: 3px rgb(94, 218, 17) solid;
+  border: 1px rgb(94, 218, 17) solid;
 }
 
 *{
@@ -11,7 +11,6 @@
 .container{
   position: relative;
   min-height: 100vh;
-  background: #1f2039;
 }
 
 .container h2{
