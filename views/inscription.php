@@ -1,14 +1,15 @@
 <?php
+    session_start();
     // Import des ressources
     require_once '../service/db_connect.php';
 
     // Récupérer les données issus du formulaire APRES validation
     // 1 - Le code doit être execute que si $_POST est définie
-    if ($_SERVER['REQUEST_METHOD'] === '$_POST'){
+    if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         $_POST = filter_input_array( INPUT_POST, [
             'nom'=>FILTER_SANITIZE_FULL_SPECIAL_CHARS,
             'prenom'=>FILTER_SANITIZE_FULL_SPECIAL_CHARS,
-            'email'=>FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+            'email'=>FILTER_SANITIZE_EMAIL,
             'mot_de_passe'=>FILTER_SANITIZE_FULL_SPECIAL_CHARS
         ]);
         
@@ -18,26 +19,31 @@
         $email = $_POST['email'];
         $mot_de_passe = $_POST['mot_de_passe'];
 
+        // - Hachage du mot de passe
+        $hachage_password = password_hash($mot_de_passe, PASSWORD_BCRYPT);
+
         // 3-j'écris ma requête paramétrées nommées
-        $requete = 'INSERT INTO INSCRIPTION VALUES (DEFAULT, :nom, :prenom, :email, :mot_de_passe)';
+        $requete = 'INSERT INTO UTILISATEUR VALUES (DEFAULT, :nom, :prenom, :email, :mot_de_passe)';
 
         // 4- Je prpare la requête
         $stmt = $pdo->prepare($requete);
 
         // 5 - Je remplace les paramètres par des variables qui possèdent les valeurs à persister
         $stmt->bindParam(':nom', $nom);
-        $stmt->bindParam(':prenom', $prenom);
+        $stmt->bindParam(':prenom',$prenom);
         $stmt->bindParam(':email',$email);
-        $stmt->bindParam(':mot_de_passe',$mot_de_passe);
+        $stmt->bindParam(':mot_de_passe',$hachage_password);
 
         // 6 - Execution de la requête
         $stmt->execute();
 
         $nb = $stmt->rowCount();
+        
+        if($nb > 0) {
+            $flash_success = '<p>L\'inscription à bien été effectuée ! </p>';
+        }
     }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -59,14 +65,14 @@
 
 <body>
     <header>
-
         <nav>
-            <a href="../index.html" class="lien_icone">
+            <a 
+                href="../index.html" class="lien_icone">
                 <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
             </a>
             <div>
                 <a href="../index.html" class="lien_icone">Accueil</a>
-                <a href="connexion.html" class="lien_icone">Connexion</a>
+                <a href="connexion.php" class="lien_icone">Connexion</a>
                 <a href="inscription.php" class="lien_icone">Inscription</a>
                 <a href="a_propos.html" class="lien_icone">À propos</a>
                 <a href="projets.html" class="lien_icone">Projets</a>
@@ -80,26 +86,31 @@
 
             <h2>Inscription</h2>
             
+            <?php if(isset($flash_success)){
+                     echo $flash_success;
+                 }
+             ?>
+           
             <form  action="#" method="POST">
-                    <div class="form_column">
-                        <label for="nom">Nom <span class="red">*</span></label>
-                        <input type="text" name="nom" id="nom" placeholder="Dujardin">
-                    </div>
-
-                    <div class="form_column">
-                        <label for="prenom">Prénom <span class="red">*</span></label>
-                        <input type="text" name="prenom" id="prenom" placeholder="Jean">
-                    </div>
-               
-                    <div class="form_column">
-                        <label for="email">Email <span class="red">*</span></label>
-                        <input type="email" name="email" id="email" placeholder="j.Dujardin@hotmail.fr">
-                    </div>
-              
                 <div class="form_column">
-                    <label for="sujet">Mot de passe <span class="red">*</span></label>
-                    <input type="text" name="mdp" id="mdp" placeholder="Votre mot de passe">
-                   <ul class="margin_top">
+                    <label for="nom">Nom <span class="red">*</span></label>
+                    <input type="text" name="nom" id="nom" placeholder="Dujardin">
+                </div>
+
+                <div class="form_column">
+                    <label for="prenom">Prénom <span class="red">*</span></label>
+                    <input type="text" name="prenom" id="prenom" placeholder="Jean">
+                </div>
+            
+                <div class="form_column">
+                    <label for="email">Email <span class="red">*</span></label>
+                    <input type="email" name="email" id="email" placeholder="j.Dujardin@hotmail.fr">
+                </div>
+            
+                <div class="form_column">
+                    <label for="mot_de_passe">Mot de passe <span class="red">*</span></label>
+                    <input type="password" name="mot_de_passe" id="mot_de_passe" placeholder="Votre mot de passe">
+                    <ul class="margin_top">
                         <li class="red">Doit contenir 8 à 16 caractères</li>
                         <li class="red">Doit contenir 1 chiffre</li>
                         <li class="red">Doit contenir 1 majuscule</li>
@@ -107,19 +118,20 @@
                         <li class="red">Doit contenir 1 caractère spécial parmis : ?!*$%§@#+ </li>
                     </ul>
                 </div>
-                <div class="form_column">
-                    <label for="sujet">Confirmation du mot de passe <span class="red">*</span></label>
-                    <input type="text" name="cMdp" id="cMdp" placeholder="Retapez votre mot de pass">
+                <!-- <div class="form_column">
+                    <label for="mot_de_passe">Confirmation du mot de passe <span class="red">*</span></label>
+                    <input type="text" name="mot_de_passe" id="mot_de_passe" placeholder="Retapez votre mot de pass">
                 </div>
                 <div>
                     <input type="checkbox" id="user_rgpd" name="user[rgpd]" required="required" value="1">   
                     <label for="user_rgpd">J'ai lu et j'accepte la
                         <a target="_blank" href="politiqueDeConfidentialité.html"><span class="aqua">politique de confidentialité</span></a> 
                     </label> 
-                </div>
+                </div> -->
                 <input type="submit" value="VALIDER" class="cta">
             </form>
         </section>
+
     </main>
 
     <footer>

@@ -1,21 +1,17 @@
-DROP DATABASE IF EXISTS morgan_portefolio;
-CREATE DATABASE IF NOT EXISTS morgan_portefolio;
 
 USE morgan_portefolio;
 
-DROP TABLE IF EXISTS INSCRIPTION;
+DROP TABLE IF EXISTS UTILISATEUR;
 
-CREATE TABLE IF NOT EXISTS INSCRIPTION(
-id_personne     int(10)         NOT NULL
-                                PRIMARY KEY
+CREATE TABLE IF NOT EXISTS UTILISATEUR(
+id_personne     int(10)         PRIMARY KEY
                                 AUTO_INCREMENT,
                                 
-nom             varchar(30)     NOT NULL,
-prenom          varchar(30)     NOT NULL,
-email           varchar(50)     NOT NULL,
-mot_de_passe    varchar(50)     NOT NUll
+nom             varchar(50)     NOT NULL,
+prenom          varchar(50)     NOT NULL,
+email           varchar(120)     NOT NULL,
+mot_de_passe    varchar(80)     NOT NUll
 
 )ENGINE=MyISAM
         DEFAULT CHARSET=utf8mb4 
         COLLATE=utf8mb4_general_ci;
-
