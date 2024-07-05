@@ -67,31 +67,31 @@
     <header>
         <nav>
             <a 
-                href="../index.html" class="lien_icone">
+                href="../index.php" class="lien_icone">
                 <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
             </a>
             <div>
-                <a href="../index.html" class="lien_icone">Accueil</a>
+                <a href="../index.php" class="lien_icone">Accueil</a>
                 <a href="connexion.php" class="lien_icone">Connexion</a>
                 <a href="inscription.php" class="lien_icone">Inscription</a>
                 <a href="a_propos.html" class="lien_icone">À propos</a>
                 <a href="projets.html" class="lien_icone">Projets</a>
-                <a href="../#jeux" class="lien_icone">Jeux</a>
+                <a href="../index.php#jeux" class="lien_icone">Jeux</a>
             </div>
         </nav>
     </header>
 
     <main>
         <section id="contact" class="section_contact">
-
-            <h2>Inscription</h2>
-            
-            <?php if(isset($flash_success)){
+        <?php if(isset($flash_success)){
                      echo $flash_success;
                  }
              ?>
-           
+            <h2>Inscription</h2>
+            
+
             <form  action="#" method="POST">
+           
                 <div class="form_column">
                     <label for="nom">Nom <span class="red">*</span></label>
                     <input type="text" name="nom" id="nom" placeholder="Dujardin">
@@ -135,7 +135,7 @@
     </main>
 
     <footer>
-        <a href="../index.html" class="lien_icone">
+        <a href="../index.php" class="lien_icone">
             <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
         </a>
 
