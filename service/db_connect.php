@@ -11,7 +11,7 @@ try{
     $dsn = 'mysql:host=localhost;dbname=morgan_portefolio';
 
     // Identifiant pour accéder à la BDD
-    $user = 'admin';
+    $user = 'root';
 
     //Le mot de passe de l'identifiant
     $password = 'Morgan2toi1*$';

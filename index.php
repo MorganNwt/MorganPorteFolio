@@ -21,15 +21,15 @@
 <body>
     <header>
         <nav>
-            <a href="../index.html" class="lien_icone">
+            <a href="../index.php" class="lien_icone">
                 <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
             </a>
             <div>
-                <a href="index.html" class="lien_icone">Accueil</a>
-                <a href="views/connexion.php" class="lien_icone">Connexion</a>
-                <a href="/views/inscription.php" class="lien_icone">Inscription</a>
-                <a href="views/a_propos.html" class="lien_icone">À propos</a>
-                <a href="views/projets.html" class="lien_icone">Projets</a>
+                <a href="index.php" class="lien_icone">Accueil</a>
+                <a href="view/connexion.php" class="lien_icone">Connexion</a>
+                <a href="/view/inscription.php" class="lien_icone">Inscription</a>
+                <a href="view/a_propos.html" class="lien_icone">À propos</a>
+                <a href="view/projets.html" class="lien_icone">Projets</a>
                 <a href="#jeux" class="lien_icone">Jeux</a>
             </div>
         </nav>
@@ -51,15 +51,15 @@
             <section id="jeux" class="accueil_section_photos">
                 <h2>Plongez dans l'action et venez tester mes créations interactives codés en Javascript.</h2>
                 <div class="accueil_grid_paysages">
-                    <a href="views/jeux/pendu.html" class="lien_conteneur_photo">
+                    <a href="view/jeux/pendu.html" class="lien_conteneur_photo">
                         <img src="images/pendu.png" alt="Jeu du pendu">
                         <div class="photo_hover">Jouer au Pendu</div>
                     </a>
-                    <a href="views/jeux/mouton.html" class="lien_conteneur_photo">
+                    <a href="view/jeux/mouton.html" class="lien_conteneur_photo">
                         <img src="images/mouton.png" alt="Jeu du saute mouton" >
                         <div class="photo_hover">Jouer au Saute Mouton</div>
                     </a>
-                    <a href="views/jeux/tir.html" class="lien_conteneur_photo">
+                    <a href="view/jeux/tir.html" class="lien_conteneur_photo">
                         <img src="images/tir.png" alt="Jeux de tir" >
                         <div class="photo_hover">Jouer au Tir</div>
                     </a>
@@ -106,7 +106,7 @@
     </main>
     <footer>
 
-        <a href="../index.html" class="lien_icone">
+        <a href="../index.php" class="lien_icone">
             <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
         </a>
 
@@ -121,6 +121,6 @@
 
     </footer>
     
-    <a href="javascript/darkMod.js"></a>
+    
 </body>
 </html>
