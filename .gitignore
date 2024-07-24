@@ -1,4 +1,4 @@
-/db_connect.php
-/ddl.sql
-/dml.sql
+/services/db_connexion.php
+/sql/ddl.sql
+/sql/dml.sql
 
