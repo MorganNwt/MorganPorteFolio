@@ -48,7 +48,7 @@
             </div>
             <img src="images/morgan.png" alt="Portrait avec la photo de morgan" class="img_morgan">
         </section>
-        
+
         <section id="jeux" class="accueil_section_photos">
             <h2>Plongez dans l'action et venez tester mes créations interactives codés en Javascript.</h2>
             <div class="accueil_grid_paysages">
@@ -121,7 +121,5 @@
         </div>
 
     </footer>
-    
-    
 </body>
 </html>

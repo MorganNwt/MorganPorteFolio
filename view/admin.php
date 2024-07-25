@@ -2,6 +2,7 @@
     require_once '../services/db_admin.php';
 ?>
 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,7 +13,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&display=swap">
-
     <link rel="stylesheet" href="../style/normalize.css">
     <link rel="stylesheet" href="../style/main.css">
 </head>
@@ -35,8 +35,6 @@
 
     <main>
         <h1>Zone autorisée pour Admin</h1>
-
-       
     </main>
 
     <footer>
