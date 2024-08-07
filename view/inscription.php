@@ -1,7 +1,6 @@
 <?php
     // Import des ressources
     require_once '../services/db_inscription.php';
- 
 ?>
 
 <!DOCTYPE html>

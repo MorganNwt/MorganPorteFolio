@@ -1,3 +1,7 @@
+<?php
+    require_once '../services/db_admin.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,13 +26,27 @@
             <a href="../index.php" class="lien_icone">
                 <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
             </a>
+            <?php
+                if ($loginUser) {
+                    // Sécurise le login pour éviter les injections XSS
+                    $login = htmlspecialchars($loginUser['prenom']); 
+                    echo "Bonjour $login !!!";
+                }else{
+                    echo "Utilisateur non trouvé.";
+                }
+            ?>
             <div>
                 <a href="../index.php" class="lien_icone">Accueil</a>
-                <a href="connexion.php" class="lien_icone">Connexion</a>
-                <a href="inscription.php" class="lien_icone">Inscription</a>
+                <?php if (!isset($userId)): ?>
+                    <a href="connexion.php" class="lien_icone">Connexion</a>
+                    <a href="inscription.php" class="lien_icone">Inscription</a>
+                <?php endif; ?>
                 <a href="a_propos.php" class="lien_icone">À propos</a>
                 <a href="projets.php" class="lien_icone">Projets</a>
                 <a href="../index.php#jeux" class="lien_icone">Jeux</a>
+                <?php if (isset($userId)): ?>
+                    <a href="../services/db_deconnexion.php" class="box-3">Déconnexion</a>
+                <?php endif; ?>
             </div>
         </nav>
     </header>

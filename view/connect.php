@@ -1,6 +1,7 @@
 <?php  
     require_once '../services/db_connect.php';
-?>>
+?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -32,6 +33,9 @@
                 <a href="a_propos.php" class="lien_icone">À propos</a>
                 <a href="projets.php" class="lien_icone">Projets</a>
                 <a href="../index.php#jeux" class="lien_icone">Jeux</a>
+                <?php if (isset($userId)): ?>
+                    <a href="../services/db_deconnexion.php" class="box-3">Déconnexion</a>
+                <?php endif; ?>
             </div>
         </nav>
 </header>
