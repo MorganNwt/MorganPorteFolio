@@ -1,3 +1,9 @@
+<?php
+    // Import des ressources
+    require_once 'services/db_index.php';
+  
+?>
+
 <!DOCTYPE html>
 <html lang="fr-FR">
 
@@ -15,7 +21,6 @@
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/index.css">
-    
 </head>
 
 <body>
@@ -28,8 +33,8 @@
                 <a href="index.php" class="lien_icone">Accueil</a>
                 <a href="view/connect.php" class="lien_icone">Connexion</a>
                 <a href="/view/inscription.php" class="lien_icone">Inscription</a>
-                <a href="view/a_propos.html" class="lien_icone">À propos</a>
-                <a href="view/projets.html" class="lien_icone">Projets</a>
+                <a href="view/a_propos.php" class="lien_icone">À propos</a>
+                <a href="view/projets.php" class="lien_icone">Projets</a>
                 <a href="#jeux" class="lien_icone">Jeux</a>
             </div>
         </nav>
@@ -71,12 +76,11 @@
 
             <h2>Parlons de votre projet ! </h2>
             
-
-            <form  action="#" method="POST">
+            <form action="services/db_index.php" method="POST">
                 <div class="form_nom_email">
                     <div class="form_column">
                         <label for="nom">Nom <span class="red">*</span></label>
-                        <input type="text" name="nom" id="nom" placeholder="Dujardin">
+                        <input type="text" name="nom" id="nom" placeholder="Dujardin" required>
                     </div>
                     <div class="form_column">
                         <label for="prenom">Prénom</label>
@@ -86,7 +90,7 @@
                 <div class="form_nom_email">
                     <div class="form_column">
                         <label for="email">Email <span class="red">*</span></label>
-                        <input type="email" name="email" id="email" placeholder="j.Dujardin@hotmail.fr">
+                        <input type="email" name="email" id="email" placeholder="j.Dujardin@hotmail.fr" required>
                     </div>
                     <div class="form_column">
                         <label for="telephone">Téléphone</label>
@@ -95,10 +99,10 @@
                 </div>
                 <div class="form_column">
                     <label for="sujet">Sujet <span class="red">*</span></label>
-                    <input type="text" name="sujet" id="sujet" placeholder=" A propos du sujet....">
+                    <input type="text" name="sujet" id="sujet" placeholder="A propos du sujet..." required>
                 </div>
                 <label for="message">Message <span class="red">*</span></label>
-                <textarea name="message" id="message" rows="10" placeholder="des questions ? n'hésitez pas ! "></textarea>
+                <textarea name="message" id="message" rows="10" placeholder="Des questions ? N'hésitez pas !" required></textarea>
                 <input type="submit" value="ENVOYER" class="cta">
             </form>
 

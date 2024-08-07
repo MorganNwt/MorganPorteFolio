@@ -26,8 +26,8 @@
                 <a href="../index.php" class="lien_icone">Accueil</a>
                 <a href="connexion.php"class="lien_icone">Connexion</a>
                 <a href="inscription.php" class="lien_icone">Inscription</a>
-                <a href="a_propos.html"class="lien_icone">À propos</a>
-                <a href="projets.html"class="lien_icone">Projets</a>
+                <a href="a_propos.php"class="lien_icone">À propos</a>
+                <a href="projets.php"class="lien_icone">Projets</a>
                 <a href="../index.php#jeux" class="lien_icone">Jeux</a>
             </div>
         </nav>
