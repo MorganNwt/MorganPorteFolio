@@ -84,6 +84,10 @@
                     <img src="images/tir.png" alt="Jeux de tir" >
                     <div class="photo_hover">Jouer au Tir</div>
                 </a>
+                <a href="view/jeux/azertype.html" class="lien_conteneur_photo">
+                    <img src="images/azertype.png" alt="Jeux pour apprendre à écrire plus vite">
+                    <div class="photo_hover">Jouer à Azertype</div>
+                </a>
             </div>
         </section>
 

@@ -98,7 +98,7 @@
                 </ul>
             </div>
             <div>
-                <a href="projets.html" class="cta">VOIR MES PROJETS </a>
+                <a href="projets.php" class="cta">VOIR MES PROJETS </a>
             </div>
         </section>
         <section>
