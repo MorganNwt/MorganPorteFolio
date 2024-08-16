@@ -1,3 +1,9 @@
+<?php
+    //require_once 'services/db_admin.php';
+    // TODO : bug de la deconnexion sur la page index seulement.
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr-FR">
 
@@ -15,7 +21,6 @@
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/index.css">
-    
 </head>
 
 <body>
@@ -24,13 +29,28 @@
             <a href="../index.php" class="lien_icone">
                 <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
             </a>
+            <?php
+                if ($loginUser) {
+                    // Sécurise le login pour éviter les injections XSS
+                    $login = htmlspecialchars($loginUser['prenom']); 
+                    echo "Bonjour $login !!!";
+                }else{
+                    echo "Utilisateur non trouvé.";
+                }
+            ?>
             <div>
                 <a href="index.php" class="lien_icone">Accueil</a>
-                <a href="view/connect.php" class="lien_icone">Connexion</a>
-                <a href="/view/inscription.php" class="lien_icone">Inscription</a>
-                <a href="view/a_propos.html" class="lien_icone">À propos</a>
-                <a href="view/projets.html" class="lien_icone">Projets</a>
+                <?php if (!isset($userId)): ?>
+                    <a href="view/connect.php" class="lien_icone">Connexion</a>
+                    <a href="/view/inscription.php" class="lien_icone">Inscription</a>
+                <?php endif; ?>
+                <a href="view/a_propos.php" class="lien_icone">À propos</a>
+                <a href="view/projets.php" class="lien_icone">Projets</a>
                 <a href="#jeux" class="lien_icone">Jeux</a>
+                <?php if (isset($userId)): ?>
+                    <a href="view/admin.php" class="box-3">Admin</a>
+                    <a href="services/db_deconnexion.php" class="box-3">Déconnexion</a>
+                <?php endif; ?>
             </div>
         </nav>
     </header>
@@ -64,6 +84,10 @@
                     <img src="images/tir.png" alt="Jeux de tir" >
                     <div class="photo_hover">Jouer au Tir</div>
                 </a>
+                <a href="view/jeux/azertype.html" class="lien_conteneur_photo">
+                    <img src="images/azertype.png" alt="Jeux pour apprendre à écrire plus vite">
+                    <div class="photo_hover">Jouer à Azertype</div>
+                </a>
             </div>
         </section>
 
@@ -71,12 +95,11 @@
 
             <h2>Parlons de votre projet ! </h2>
             
-
-            <form  action="#" method="POST">
+            <form action="services/db_index.php" method="POST">
                 <div class="form_nom_email">
                     <div class="form_column">
                         <label for="nom">Nom <span class="red">*</span></label>
-                        <input type="text" name="nom" id="nom" placeholder="Dujardin">
+                        <input type="text" name="nom" id="nom" placeholder="Dujardin" required>
                     </div>
                     <div class="form_column">
                         <label for="prenom">Prénom</label>
@@ -86,7 +109,7 @@
                 <div class="form_nom_email">
                     <div class="form_column">
                         <label for="email">Email <span class="red">*</span></label>
-                        <input type="email" name="email" id="email" placeholder="j.Dujardin@hotmail.fr">
+                        <input type="email" name="email" id="email" placeholder="j.Dujardin@hotmail.fr" required>
                     </div>
                     <div class="form_column">
                         <label for="telephone">Téléphone</label>
@@ -95,10 +118,10 @@
                 </div>
                 <div class="form_column">
                     <label for="sujet">Sujet <span class="red">*</span></label>
-                    <input type="text" name="sujet" id="sujet" placeholder=" A propos du sujet....">
+                    <input type="text" name="sujet" id="sujet" placeholder="A propos du sujet..." required>
                 </div>
                 <label for="message">Message <span class="red">*</span></label>
-                <textarea name="message" id="message" rows="10" placeholder="des questions ? n'hésitez pas ! "></textarea>
+                <textarea name="message" id="message" rows="10" placeholder="Des questions ? N'hésitez pas !" required></textarea>
                 <input type="submit" value="ENVOYER" class="cta">
             </form>
 

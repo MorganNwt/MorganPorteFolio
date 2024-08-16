@@ -39,7 +39,7 @@
         // Executer la requête SELECT
         if ( (!empty($email)) && (!empty($passwd)) && (mb_strlen($passwd) >= 10 ) ){
             // vérifier que l'utilisateur n'existe pas en BDD avec une requête SELECT
-            $sql = 'SELECT * FROM utilisateur WHERE email = :email';
+            $sql = 'SELECT * FROM USERS WHERE email = :email';
         
             if(isset($pdo)){
                 $db_statement = $pdo->prepare($sql);
@@ -51,7 +51,6 @@
             );
 
             $data = $db_statement->fetch(PDO::FETCH_ASSOC);
-            var_dump($data);
             if(password_verify($passwd, $data['passwd'])) {
                 $_SESSION['userId'] = $data['id'];
                 header('Location: admin.php');
@@ -59,11 +58,8 @@
             else{
                  $message = "<span class='message'>Mot de pass incorrecte !</span>";
             }
-
         }
         else{
             $message = "<span class='message'>Veuillez renseigner tous les champs et avec un MDP de 10 cractères !</span>";
         }
     }
-
-?>>
