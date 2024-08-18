@@ -7,7 +7,7 @@
         $userId = $_SESSION['userId'];
     }
     else{
-        header('Location: ../index.php');
+        header('Location: ../view/connect.php');
     }
 
 
