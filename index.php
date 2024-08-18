@@ -1,5 +1,5 @@
 <?php
-    //require_once 'services/db_admin.php';
+    require_once 'services/db_admin.php';
     // TODO : bug de la deconnexion sur la page index seulement.
 ?>
 
@@ -25,34 +25,8 @@
 
 <body>
     <header>
-        <nav>
-            <a href="../index.php" class="lien_icone">
-                <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
-            </a>
-            <?php
-                if ($loginUser) {
-                    // Sécurise le login pour éviter les injections XSS
-                    $login = htmlspecialchars($loginUser['prenom']); 
-                    echo "Bonjour $login !!!";
-                }else{
-                    echo "Utilisateur non trouvé.";
-                }
-            ?>
-            <div>
-                <a href="index.php" class="lien_icone">Accueil</a>
-                <?php if (!isset($userId)): ?>
-                    <a href="view/connect.php" class="lien_icone">Connexion</a>
-                    <a href="/view/inscription.php" class="lien_icone">Inscription</a>
-                <?php endif; ?>
-                <a href="view/a_propos.php" class="lien_icone">À propos</a>
-                <a href="view/projets.php" class="lien_icone">Projets</a>
-                <a href="#jeux" class="lien_icone">Jeux</a>
-                <?php if (isset($userId)): ?>
-                    <a href="view/admin.php" class="box-3">Admin</a>
-                    <a href="services/db_deconnexion.php" class="box-3">Déconnexion</a>
-                <?php endif; ?>
-            </div>
-        </nav>
+           <!-- inclusion du haut de page du site -->
+        <?php require_once(__DIR__ . '/components/header.php'); ?> 
     </header>
     <main>
         <section class="accueil_introduction">
@@ -129,20 +103,8 @@
 
     </main>
     <footer>
-
-        <a href="../index.php" class="lien_icone">
-            <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
-        </a>
-
-        <div>
-            <a target="_blank" href="https://twitter.com/" class="lien_icone">
-                <img src="images/twitter.png" alt="Logo Twitter" >
-            </a>
-            <a target="_blank" href="https://www.instagram.com/" class="lien_icone">
-                <img src="images/instagram.png" alt="Logo Instagram" >
-            </a>
-        </div>
-
+        <!-- inclusion du bas de page du site -->
+        <?php require_once(__DIR__ . '/components/footer.php'); ?>
     </footer>
 </body>
 </html>

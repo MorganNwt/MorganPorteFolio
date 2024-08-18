@@ -22,34 +22,10 @@
 
 <body>
     <header>
-        <nav>
-            <a href="../index.php" class="lien_icone">
-                <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
-            </a>
-            <?php
-                if ($loginUser) {
-                    // Sécurise le login pour éviter les injections XSS
-                    $login = htmlspecialchars($loginUser['prenom']); 
-                    echo "Bonjour $login !!!";
-                }else{
-                    echo "Utilisateur non trouvé.";
-                }
-            ?>
-            <div>
-                <a href="../index.php" class="lien_icone">Accueil</a>
-                <?php if (!isset($userId)): ?>
-                    <a href="connexion.php"class="lien_icone">Connexion</a>
-                    <a href="inscription.php" class="lien_icone">Inscription</a>
-                <?php endif; ?>
-                <a href="a_propos.php"class="lien_icone">À propos</a>
-                <a href="projets.php"class="lien_icone">Projets</a>
-                <a href="../index.php#jeux" class="lien_icone">Jeux</a>
-                <?php if (isset($userId)): ?>
-                    <a href="../services/db_deconnexion.php" class="box-3">Déconnexion</a>
-                <?php endif; ?>
-            </div>
-        </nav>
+           <!-- inclusion du haut de page du site -->
+        <?php require_once(__DIR__ . '/../components/header.php'); ?> 
     </header>
+
     <main class="a_propos_main">
         <section>
             <h1>À propos</h1>
@@ -145,20 +121,8 @@
         </section>
     </main>
     <footer>
-        <a href="../index.php" class="lien_icone">
-            <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan" >
-        </a>
-        <div>
-            <a target="_blank" href="https://twitter.com/" class="lien_icone">
-                <img src="../images/twitter.png" alt="Logo Twitter" >
-            </a>
-            <a target="_blank" href="https://www.instagram.com/" class="lien_icone">
-                <img src="../images/instagram.png" alt="Logo Instagram" >
-            </a>
-        </div>
+        <!-- inclusion du bas de page du site -->
+        <?php require_once(__DIR__ . '/../components/footer.php'); ?>
     </footer>
-
-
-    <script src="../javascript/jeux.js"></script>
 </body>
 </html>

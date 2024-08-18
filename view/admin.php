@@ -2,12 +2,13 @@
     require_once '../services/db_admin.php';
 ?>
 
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page de la zone connecté pour admin">
+
     <title>Ouverture de session<</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,30 +18,9 @@
     <link rel="stylesheet" href="../style/main.css">
 </head>
 <body>
-<header>
-        <nav>
-            <a href="../index.php" class="lien_icone">
-                <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
-            </a>
-            <?php
-                if ($loginUser) {
-                    // Sécurise le login pour éviter les injections XSS
-                    $login = htmlspecialchars($loginUser['prenom']); 
-                    echo "Bonjour $login !!!";
-                }else{
-                    echo "Utilisateur non trouvé.";
-                }
-            ?>
-            <div>
-                <a href="../index.php" class="lien_icone">Accueil</a>
-                <a href="a_propos.php" class="lien_icone">À propos</a>
-                <a href="projets.php" class="lien_icone">Projets</a>
-                <a href="../index.php/#jeux" class="lien_icone">Jeux</a>
-                <?php if (isset($userId)): ?>
-                    <a href="../services/db_deconnexion.php" class="box-3">Déconnexion</a>
-                <?php endif; ?>
-            </div>
-        </nav>
+    <header>
+        <!-- inclusion du haut de page du site -->
+        <?php require_once(__DIR__ . '/../components/header.php'); ?> 
     </header>
 
     <main>
@@ -48,20 +28,8 @@
     </main>
 
     <footer>
-
-        <a href="../index.php" class="lien_icone">
-            <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
-        </a>
-
-        <div>
-            <a target="_blank" href="https://twitter.com/" class="lien_icone">
-                <img src="../images/twitter.png" alt="Logo Twitter" >
-            </a>
-            <a target="_blank" href="https://www.instagram.com/" class="lien_icone">
-                <img src="../images/instagram.png" alt="Logo Instagram" >
-            </a>
-        </div>
-
+        <!-- inclusion du bas de page du site -->
+        <?php require_once(__DIR__ . '/../components/footer.php'); ?>
     </footer>
 </body>
 </html>
