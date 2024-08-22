@@ -24,7 +24,7 @@
 <body>
     <header>
         <!-- inclusion du haut de page du site -->
-        <?php require_once(__DIR__ . '/../components/header.php'); ?> 
+        <?php require_once(__DIR__ . '/../components/_header.php'); ?> 
     </header>
     <main>
         <section id="contact" class="section_contact">
@@ -90,7 +90,7 @@
     </main>
     <footer>
         <!-- inclusion du bas de page du site -->
-        <?php require_once(__DIR__ . '/../components/footer.php'); ?>
+        <?php require_once(__DIR__ . '/../components/_footer.php'); ?>
     </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <body>
     <header>
            <!-- inclusion du haut de page du site -->
-        <?php require_once(__DIR__ . '/../components/header.php'); ?> 
+        <?php require_once(__DIR__ . '/../components/_header.php'); ?> 
     </header>
 
     <main class="a_propos_main">
@@ -74,7 +74,7 @@
                 </ul>
             </div>
             <div>
-                <a href="projets.php" class="cta">VOIR MES PROJETS </a>
+                <a href="gallerie_photos.php" class="cta">VOIR MES PROJETS </a>
             </div>
         </section>
         <section>
@@ -122,7 +122,7 @@
     </main>
     <footer>
         <!-- inclusion du bas de page du site -->
-        <?php require_once(__DIR__ . '/../components/footer.php'); ?>
+        <?php require_once(__DIR__ . '/../components/_footer.php'); ?>
     </footer>
 </body>
 </html>

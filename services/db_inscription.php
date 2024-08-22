@@ -2,7 +2,7 @@
     session_start();
 
     // Import des ressources
-    require_once 'db_connexion.php'; // Assurez-vous que $pdo est défini ici
+    require_once 'db_pdo.php'; // Assurez-vous que $pdo est défini ici
 
     // Récupérer les données issues du formulaire APRES validation
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -46,9 +46,9 @@
             }
 
             // Requête d'insertion dans la table infos_users
-            $requete_infos_users = 'INSERT INTO infos_users (user_id, nom, prenom, adresse, date_naissance) VALUES (:user_id, :nom, :prenom, :adresse, :date_naissance)';
+            $requete_infos_users = 'INSERT INTO infos_users (users_id, nom, prenom, adresse, date_naissance) VALUES (:users_id, :nom, :prenom, :adresse, :date_naissance)';
             $stmt_infos_users = $pdo->prepare($requete_infos_users);
-            $stmt_infos_users->bindParam(':user_id', $user_id);
+            $stmt_infos_users->bindParam(':users_id', $user_id);
             $stmt_infos_users->bindParam(':nom', $nom);
             $stmt_infos_users->bindParam(':prenom', $prenom);
             $stmt_infos_users->bindParam(':adresse', $adresse);
@@ -59,6 +59,7 @@
             $pdo->commit();
 
             echo '<p>L\'inscription a bien été effectuée !</p>';
+            header('Location: ../index.php');
         } catch (Exception $e) {
             // Annuler la transaction en cas d'erreur
             $pdo->rollBack();

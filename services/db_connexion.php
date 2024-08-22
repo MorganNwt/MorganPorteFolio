@@ -1,7 +1,7 @@
 <?php
     session_start();
     // Import des ressources
-    require_once 'db_connexion.php';
+    require_once 'db_pdo.php';
 
      // Création de constantes pour les erreurs
      const ERROR_REQUIRED = 'Veuillez renseigner ce champ';
@@ -53,7 +53,7 @@
             $data = $db_statement->fetch(PDO::FETCH_ASSOC);
             if(password_verify($passwd, $data['passwd'])) {
                 $_SESSION['userId'] = $data['id'];
-                header('Location: admin.php');
+                header('Location: ../index.php');
             }
             else{
                  $message = "<span class='message'>Mot de pass incorrecte !</span>";

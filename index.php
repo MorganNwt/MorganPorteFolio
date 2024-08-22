@@ -1,8 +1,6 @@
 <?php
     require_once 'services/db_admin.php';
-    // TODO : bug de la deconnexion sur la page index seulement.
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -26,7 +24,7 @@
 <body>
     <header>
            <!-- inclusion du haut de page du site -->
-        <?php require_once(__DIR__ . '/components/header.php'); ?> 
+        <?php require_once(__DIR__ . '/components/_header.php'); ?> 
     </header>
     <main>
         <section class="accueil_introduction">
@@ -104,7 +102,7 @@
     </main>
     <footer>
         <!-- inclusion du bas de page du site -->
-        <?php require_once(__DIR__ . '/components/footer.php'); ?>
+        <?php require_once(__DIR__ . '/components/_footer.php'); ?>
     </footer>
 </body>
 </html>

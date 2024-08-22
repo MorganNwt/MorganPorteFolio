@@ -1,7 +1,6 @@
 <?php  
-    require_once '../services/db_connect.php';
-?>
-
+    require_once '../services/db_connexion.php';
+?> 
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -23,7 +22,7 @@
 <body>
     <header>
         <!-- inclusion du haut de page du site -->
-        <?php require_once(__DIR__ . '/../components/header.php'); ?> 
+        <?php require_once(__DIR__ . '/../components/_header.php'); ?> 
     </header>
     <main>
         <section id="contact" class="section_contact">
@@ -44,9 +43,7 @@
                 </div>
                 <input type="submit" value="VALIDER" class="cta" >
             </form>
-
             <h2>Vous n'avez pas de compte ?</h2>
-
             <a href="inscription.php">
                 <input type="submit" value="Créer un compte" class="cta">
             </a>    
@@ -54,7 +51,7 @@
     </main>
     <footer>
         <!-- inclusion du bas de page du site -->
-        <?php require_once(__DIR__ . '/../components/footer.php'); ?>
+        <?php require_once(__DIR__ . '/../components/_footer.php'); ?>
     </footer>
 </body>
 </html>

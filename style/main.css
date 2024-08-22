@@ -85,3 +85,13 @@ img {
  width: 50px;
 }
 
+.btn-red{
+  padding: 0.3em;
+  border: rgb(255, 252, 252) 2px solid;
+  background-color: #971616;
+  color: white;
+  font-size: 1.5em;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 0.3em;
+}
