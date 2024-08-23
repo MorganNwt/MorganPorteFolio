@@ -5,9 +5,9 @@
 
      // Création de constantes pour les erreurs
      const ERROR_REQUIRED = 'Veuillez renseigner ce champ';
-     const ERROR_PASSWORD_NUMBER_OF_CARACTERS = 'Le mot de pass ne répond pas aux nombres de caractère requis ( 10 )';
+     const ERROR_PASSWORD_NUMBER_OF_CARACTERS = 'Le mot de pass ne répond pas aux nombres de caractère requis ( 13 )';
  
-     // Cr'ation d'un tableau qui recevra les erreurs possibles
+     // Création d'un tableau qui recevra les erreurs possibles
      $errors = [
          'email' => '',
          'passwd' => ''
@@ -32,12 +32,12 @@
         if(!$passwd){
             $errors['passwd'] = ERROR_REQUIRED;
         }
-        elseif(mb_strlen($passwd) < 10 ){
+        elseif(mb_strlen($passwd) < 13 ){
             $errors['passwd'] = ERROR_PASSWORD_NUMBER_OF_CARACTERS;
         }
     
         // Executer la requête SELECT
-        if ( (!empty($email)) && (!empty($passwd)) && (mb_strlen($passwd) >= 10 ) ){
+        if ( (!empty($email)) && (!empty($passwd)) && (mb_strlen($passwd) >= 13 ) ){
             // vérifier que l'utilisateur n'existe pas en BDD avec une requête SELECT
             $sql = 'SELECT * FROM USERS WHERE email = :email';
         

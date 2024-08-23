@@ -29,7 +29,7 @@
             // Hachage du mot de passe
             $hachage_password = password_hash($passwd, PASSWORD_BCRYPT);
         } else {
-            echo ' <link rel="stylesheet" href="../style/inscription.css"> <script src="../javascript/components/_inscription_alert.js"></script>';
+            echo ' <link rel="stylesheet" href="../style/inscription.css"><script src="../javascript/components/_inscription_alert.js"></script>';
             exit(); // Arrêter l'exécution du script
         }
 
@@ -72,18 +72,3 @@
             echo '<p>Échec de l\'inscription : ' . $e->getMessage() . '</p>';
         }
     }
-?>
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="../style/inscription.css">
-</head>
-<body>
-    
-</body>
-</html>

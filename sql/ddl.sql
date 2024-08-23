@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS user_roles;
 DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS infos_users;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS formulaire_contact;
 
 
 CREATE TABLE `users` (
@@ -29,6 +30,16 @@ CREATE TABLE `roles` (
 CREATE TABLE `user_roles` (
   `users_id` integer,
   `role_id` integer
+);
+
+CREATE TABLE `formulaire_contact` (
+  `id` integer PRIMARY KEY,
+  `nom` varchar(255),
+  `prenom` varchar(255),
+  `email` varchar(255),
+  `telephone` varchar(255),
+  `sujet` varchar(255),
+  `message` text
 );
 
 ALTER TABLE `user_roles` ADD FOREIGN KEY (`users_id`) REFERENCES `users` (`id`);

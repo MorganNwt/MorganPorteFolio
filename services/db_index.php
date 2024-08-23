@@ -1,68 +1,40 @@
 <?php
-    session_start();
+    require_once 'db_pdo.php'; 
 
-    // Import des ressources
-    require_once 'db_pdo.php'; // Assurez-vous que $pdo est défini ici
-
-    // Récupérer les données issues du formulaire APRES validation
+    // Récupérer les données issues du formulaire
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Filtrer les entrées
         $_POST = filter_input_array(INPUT_POST, [
-            'email' => FILTER_SANITIZE_EMAIL,
-            'passwd' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
             'nom' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
             'prenom' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
-            'adresse' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
-            'date_naissance' => FILTER_SANITIZE_FULL_SPECIAL_CHARS
+            'email' => FILTER_SANITIZE_EMAIL,
+            'telephone' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+            'sujet' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+            'message' => FILTER_SANITIZE_FULL_SPECIAL_CHARS
         ]);
         
         // Hydrater les variables
-        $email = $_POST['email'];
-        $passwd = $_POST['passwd'];
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
-        $adresse = $_POST['adresse'];
-        $date_naissance = $_POST['date_naissance'];
+        $email = $_POST['email'];
+        $telephone = $_POST['telephone'];
+        $sujet = $_POST['sujet'];
+        $message = $_POST['message'];
         
-        // Hachage du mot de passe
-        $hachage_password = password_hash($passwd, PASSWORD_BCRYPT);
-
-        try {
-            // Démarrer une transaction
-            $pdo->beginTransaction();
-
-            // Requête d'insertion dans la table users
-            $requete_users = 'INSERT INTO users (email, passwd) VALUES (:email, :passwd)';
-            $stmt_users = $pdo->prepare($requete_users);
-            $stmt_users->bindParam(':email', $email);
-            $stmt_users->bindParam(':passwd', $hachage_password);
-            $stmt_users->execute();
-
-            // Récupérer l'ID de l'utilisateur inséré
-            $user_id = $pdo->lastInsertId();
-
-            if (!$user_id) {
-                throw new Exception("Échec de la récupération de l'ID de l'utilisateur.");
-            }
-
-            // Requête d'insertion dans la table infos_users
-            $requete_infos_users = 'INSERT INTO infos_users (users_id, nom, prenom, adresse, date_naissance) VALUES (:users_id, :nom, :prenom, :adresse, :date_naissance)';
-            $stmt_infos_users = $pdo->prepare($requete_infos_users);
-            $stmt_infos_users->bindParam(':users_id', $user_id);
-            $stmt_infos_users->bindParam(':nom', $nom);
-            $stmt_infos_users->bindParam(':prenom', $prenom);
-            $stmt_infos_users->bindParam(':adresse', $adresse);
-            $stmt_infos_users->bindParam(':date_naissance', $date_naissance);
-            $stmt_infos_users->execute();
-
-            // Valider la transaction
-            $pdo->commit();
-
-            echo '<p>L\'inscription a bien été effectuée !</p>';
-            header('Location: ../index.php');
-        } catch (Exception $e) {
-            // Annuler la transaction en cas d'erreur
-            $pdo->rollBack();
-            echo '<p>Échec de l\'inscription : ' . $e->getMessage() . '</p>';
+        // Requête d'insertion dans la table formulaire_contact
+        $requete_form_contact = 'INSERT INTO formulaire_contact (nom, prenom, email, telephone, sujet, message) VALUES (:nom, :prenom, :email, :telephone, :sujet, :message)';
+        $stmt_form_contact = $pdo->prepare($requete_form_contact);
+        $stmt_form_contact->bindParam(':nom', $nom);
+        $stmt_form_contact->bindParam(':prenom', $prenom);
+        $stmt_form_contact->bindParam(':email', $email);
+        $stmt_form_contact->bindParam(':telephone', $telephone);
+        $stmt_form_contact->bindParam(':sujet', $sujet);
+        $stmt_form_contact->bindParam(':message', $message);
+        
+        // Exécution de la requête
+        if ($stmt_form_contact->execute()) {
+            echo "Nouveau contact ajouté avec succès";
+        } else {
+            echo "Erreur lors de l'ajout du contact";
         }
     }

@@ -1,5 +1,6 @@
 <?php
     require_once 'services/db_admin.php';
+    require_once 'services/db_index.php';
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +68,7 @@
 
             <h2>Parlons de votre projet ! </h2>
             
-            <form action="services/db_index.php" method="POST">
+            <form action="#" method="POST">
                 <div class="form_nom_email">
                     <div class="form_column">
                         <label for="nom">Nom <span class="red">*</span></label>
