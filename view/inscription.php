@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="../style/normalize.css">
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/inscription.css">
+
+    <script src="../javascript/components/_inscription_validate.js" defer></script>
 </head>
 
 <body>
@@ -46,11 +48,11 @@
                     <label for="passwd">Mot de passe <span class="red">*</span></label>
                     <input type="password" name="passwd" id="passwd" placeholder="Votre mot de passe">
                     <ul class="margin_top">
-                        <li class="red">Doit contenir 8 à 16 caractères</li>
-                        <li class="red">Doit contenir 1 chiffre</li>
-                        <li class="red">Doit contenir 1 majuscule</li>
-                        <li class="red">Doit contenir 1 minuscule</li>
-                        <li class="red">Doit contenir 1 caractère spécial parmis : ?!*$%§@#+ </li>
+                        <li id="length" class="red">Doit contenir au moins 13 caractères</li>
+                        <li id="number" class="red">dont 1 chiffre</li>
+                        <li id="uppercase" class="red">dont 1 majuscule</li>
+                        <li id="lowercase" class="red">dont 1 minuscule</li>
+                        <li id="special" class="red">dont 1 caractère spécial parmi : ?!*$%§@#+</li>
                     </ul>
                 </div>
            

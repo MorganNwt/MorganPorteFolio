@@ -14,20 +14,19 @@ form {
     margin-bottom: 50px;
   }
 
-  .form_nom_email {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.form_nom_email {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
     
-  }
+}
 
-  .form_column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    
-  }
+.form_column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+ }
 
 input,
 textarea {
@@ -45,4 +44,15 @@ input[type='submit'] {
   margin: auto;
   margin-top: 30px;
   margin-bottom: 80px;
+}
+
+.cta-create:hover {
+  background: linear-gradient(#696484, #8788ba);
+  text-decoration: none;
+}
+
+.inline {
+  display: inline-block;
+  vertical-align: middle; /* Aligne le texte et le bouton verticalement */
+  margin-right: 1em; /* Ajoute un espace entre le h2 et le bouton */
 }

@@ -56,3 +56,25 @@ input[type='submit'] {
 .margin_top{
   margin-top: 20px;
 }
+
+/* alert bannière erreur mdp sur i'inscription */
+.alert-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 2px solid #f5c6cb;
+  z-index: 1000;
+}
+
+.red{
+  color: red;
+}
+
+.green{
+  color: rgb(41, 188, 41);
+}

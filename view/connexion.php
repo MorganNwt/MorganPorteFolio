@@ -43,10 +43,10 @@
                 </div>
                 <input type="submit" value="VALIDER" class="cta" >
             </form>
-            <h2>Vous n'avez pas de compte ?</h2>
-            <a href="inscription.php">
+            <h2 class="inline">Vous n'avez pas de compte ?</h2>
+            <a href="inscription.php" class="inline">
                 <input type="submit" value="Créer un compte" class="cta">
-            </a>    
+            </a>
         </section>
     </main>
     <footer>
