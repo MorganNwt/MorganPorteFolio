@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const passwordInput = document.getElementById('passwd');
+    const confirmPasswordInput = document.getElementById('confirm_passwd');
     
     // Sélectionner chaque critère de mot de passe
     const lengthCriteria = document.getElementById('length');
@@ -8,49 +9,39 @@ document.addEventListener('DOMContentLoaded', function() {
     const lowercaseCriteria = document.getElementById('lowercase');
     const specialCriteria = document.getElementById('special');
 
+    // Utiliser l'ID correct pour la correspondance des mots de passe
+    const matchCriteria = document.getElementById('match');
+
     // Écouter les événements d'entrée dans le champ de mot de passe
     passwordInput.addEventListener('input', function() {
         const value = passwordInput.value;
 
         // Vérifier chaque critère et changer la classe correspondante
-        if (value.length >= 13) {
-            lengthCriteria.classList.remove('red');
-            lengthCriteria.classList.add('green');
-        } else {
-            lengthCriteria.classList.remove('green');
-            lengthCriteria.classList.add('red');
-        }
+        // Si value.length >= 13 est vrai : Alors la classe className de lengthCriteria devient 'green'.
+        lengthCriteria.className = value.length >= 13 ? 'green' : 'red';
+        numberCriteria.className = /\d/.test(value) ? 'green' : 'red';
+        uppercaseCriteria.className = /[A-Z]/.test(value) ? 'green' : 'red';
+        lowercaseCriteria.className = /[a-z]/.test(value) ? 'green' : 'red';
+        specialCriteria.className = /[?!*$%§@#+]/.test(value) ? 'green' : 'red';
 
-        if (/\d/.test(value)) { // Contient un chiffre
-            numberCriteria.classList.remove('red');
-            numberCriteria.classList.add('green');
+        // Vérifier si les mots de passe correspondent
+        if (value === confirmPasswordInput.value && value !== '') {
+            matchCriteria.classList.remove('red');
+            matchCriteria.classList.add('green');
         } else {
-            numberCriteria.classList.remove('green');
-            numberCriteria.classList.add('red');
+            matchCriteria.classList.remove('green');
+            matchCriteria.classList.add('red');
         }
+    });
 
-        if (/[A-Z]/.test(value)) { // Contient une majuscule
-            uppercaseCriteria.classList.remove('red');
-            uppercaseCriteria.classList.add('green');
+    // Ajouter un événement d'entrée pour le champ de confirmation de mot de passe
+    confirmPasswordInput.addEventListener('input', function() {
+        if (passwordInput.value === confirmPasswordInput.value && confirmPasswordInput.value !== '') {
+            matchCriteria.classList.remove('red');
+            matchCriteria.classList.add('green');
         } else {
-            uppercaseCriteria.classList.remove('green');
-            uppercaseCriteria.classList.add('red');
-        }
-
-        if (/[a-z]/.test(value)) { // Contient une minuscule
-            lowercaseCriteria.classList.remove('red');
-            lowercaseCriteria.classList.add('green');
-        } else {
-            lowercaseCriteria.classList.remove('green');
-            lowercaseCriteria.classList.add('red');
-        }
-
-        if (/[?!*$%§@#+]/.test(value)) { // Contient un caractère spécial
-            specialCriteria.classList.remove('red');
-            specialCriteria.classList.add('green');
-        } else {
-            specialCriteria.classList.remove('green');
-            specialCriteria.classList.add('red');
+            matchCriteria.classList.remove('green');
+            matchCriteria.classList.add('red');
         }
     });
 });
