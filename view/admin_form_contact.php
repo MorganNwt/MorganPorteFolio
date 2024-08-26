@@ -1,5 +1,6 @@
 <?php
     require_once '../services/db_admin.php'; 
+    require_once '../services/db_admin_form_contact.php';
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +30,6 @@
         <div class="flex-admin">
             <a href="admin.php" class="btn-red-admin1">Retour</a>
         </div>
-        <?php  require_once '../services/db_admin_form_contact.php'; ?>
         <table class="border">
             <tr>
                 <th class="border">Id</th>
@@ -52,7 +52,7 @@
                         echo '<td class="border">'; // Cellule pour les actions
                         echo '<form  action="admin_form_contact.php" method="POST">';
                         echo '<input type="hidden" name="id" value="' . htmlspecialchars($form_contact['id']) . '">';
-                        echo '<input type="submit" name="delete" class="btn-red-admin2  value="Supprimer">';
+                        echo '<input type="submit" name="delete" class="btn-red-admin2 value="Supprimer">';
                         echo '</form>';
                         echo '</td>';
                         echo '</tr>';
