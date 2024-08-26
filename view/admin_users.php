@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" href="../style/normalize.css">
     <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/admin.css">
     <link rel="stylesheet" href="../style/admin_users.css">
 </head>
 <body>
@@ -27,7 +28,9 @@
     </header>
     <main>
         <h1>Gestion des utilisateurs</h1>
-
+        <div class="flex-admin">
+            <a href="admin.php" class="btn-red-admin1">Retour</a>
+        </div>
         
     </main>
     <footer>

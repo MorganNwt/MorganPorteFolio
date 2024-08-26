@@ -86,7 +86,7 @@
                     </div>
                     <div class="form_column">
                         <label for="telephone">Téléphone</label>
-                        <input type="tel" name="telephone" id="telephone" placeholder="06 00 00 00 00">
+                        <input type="tel" name="telephone" id="telephone" placeholder="0622466328">
                     </div>
                 </div>
                 <div class="form_column">

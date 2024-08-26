@@ -1,4 +1,6 @@
-<?php  require_once '../services/db_admin.php'; ?>
+<?php  
+    require_once '../services/db_admin.php';
+?>
 
 <!DOCTYPE html>
 <html lang="fr">

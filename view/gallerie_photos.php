@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&display=swap">
 
     <link rel="stylesheet" href="../style/main.css">
-    <link rel="stylesheet" href="../style/projets.css">
+    <link rel="stylesheet" href="../style/gallerie_photos.css">
 
     <script src="../javascript/gallerie_photos.js" defer></script>
 </head>

@@ -33,8 +33,8 @@
         
         // Exécution de la requête
         if ($stmt_form_contact->execute()) {
-            echo "Nouveau contact ajouté avec succès";
+            echo "Nouveau message envoyé avec succès";
         } else {
-            echo "Erreur lors de l'ajout du contact";
+            echo "Erreur lors de l'envoi du message";
         }
     }
