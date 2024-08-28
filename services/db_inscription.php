@@ -3,7 +3,7 @@
 
     // Import des ressources
     require_once 'db_pdo.php'; // Assurez-vous que $pdo est défini ici
-
+    
     // Récupérer les données issues du formulaire APRES validation
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Filtrer les entrées
@@ -32,25 +32,37 @@
             echo ' <link rel="stylesheet" href="../style/inscription.css"><script src="../javascript/components/_inscription_alert.js"></script>';
             exit(); // Arrêter l'exécution du script
         }
-
+    
         try {
+            // Vérifier si l'email existe déjà
+            $requete_check_email = 'SELECT id FROM users WHERE email = :email';
+            $stmt_check_email = $pdo->prepare($requete_check_email);
+            $stmt_check_email->bindParam(':email', $email);
+            $stmt_check_email->execute();
+    
+            // Si l'email existe déjà, arrêter le processus d'inscription
+            if ($stmt_check_email->rowCount() > 0) {
+                echo '<p>Cette adresse email est déjà utilisée. Veuillez en choisir une autre.</p>';
+                exit();
+            }
+    
             // Démarrer une transaction
             $pdo->beginTransaction();
-
+    
             // Requête d'insertion dans la table users
             $requete_users = 'INSERT INTO users (email, passwd) VALUES (:email, :passwd)';
             $stmt_users = $pdo->prepare($requete_users);
             $stmt_users->bindParam(':email', $email);
             $stmt_users->bindParam(':passwd', $hachage_password);
             $stmt_users->execute();
-
+    
             // Récupérer l'ID de l'utilisateur inséré
             $user_id = $pdo->lastInsertId();
-
+    
             if (!$user_id) {
                 throw new Exception("Échec de la récupération de l'ID de l'utilisateur.");
             }
-
+    
             // Requête d'insertion dans la table infos_users
             $requete_infos_users = 'INSERT INTO infos_users (users_id, nom, prenom, adresse, date_naissance) VALUES (:users_id, :nom, :prenom, :adresse, :date_naissance)';
             $stmt_infos_users = $pdo->prepare($requete_infos_users);
@@ -60,10 +72,10 @@
             $stmt_infos_users->bindParam(':adresse', $adresse);
             $stmt_infos_users->bindParam(':date_naissance', $date_naissance);
             $stmt_infos_users->execute();
-
+    
             // Valider la transaction
             $pdo->commit();
-
+    
             echo '<p>L\'inscription a bien été effectuée !</p>';
             header('Location: ../index.php');
         } catch (Exception $e) {

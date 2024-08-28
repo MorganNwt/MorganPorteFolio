@@ -4,9 +4,16 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column; /* Alignement vertical des éléments enfants */
+  min-height: 100vh; /* Hauteur minimale de 100% de la hauteur de la fenêtre */
   font-family: 'Manrope', sans-serif;
   font-size: 1em;
   background-color: #1f2039;
+}
+
+main {
+  flex: 1; /* Prend tout l'espace restant disponible entre le header et le footer */
 }
 
 a {
@@ -75,11 +82,11 @@ img {
   border-radius: 5px;
 }
 
-.size_img{
- width: 50px;
+.size_img {
+  width: 50px;
 }
 
-.btn-red{
+.btn-red {
   padding: 0.3em;
   border: rgb(255, 252, 252) 2px solid;
   background-color: #971616;
@@ -90,10 +97,10 @@ img {
   border-radius: 0.3em;
 }
 
-.red{
+.red {
   color: red;
 }
 
-.green{
+.green {
   color: rgb(15, 240, 15);
 }

@@ -29,7 +29,7 @@
         <h1>Zone Admin</h1>
         <div class="flex-admin">
             <a href="admin_users.php" class="btn-red-admin1">Gestion des utilisateurs</a>
-            <a href="admin_form_contact.php" class="btn-red-admin2">Gestion des demandes de projet</a>
+            <a href="admin_form_contact.php" class="btn-red-admin2">Gestion des demandes de contact</a>
         </div>
     </main>
 

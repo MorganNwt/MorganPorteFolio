@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ici ce trouve la page des demandes de projet">
 
-    <title>Gestion des demandes de projet</title>
+    <title>Gestion des demandes de contact</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="../style/normalize.css">
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/admin_form_contact.css">
+
+    <script src="../javascript/components/_confirm_delet.js"></script>
 </head>
 <body>
     <header>
@@ -26,7 +28,7 @@
         <?php require_once(__DIR__ . '/../components/_header.php'); ?> 
     </header>
     <main>
-        <h1>Gestion des demandes de projet</h1>
+        <h1>Gestion des demandes de contact</h1>
         <div class="flex-admin">
             <a href="admin.php" class="btn-red-admin1">Retour</a>
         </div>
@@ -52,7 +54,7 @@
                         echo '<td class="border">'; // Cellule pour les actions
                         echo '<form  action="admin_form_contact.php" method="POST">';
                         echo '<input type="hidden" name="id" value="' . htmlspecialchars($form_contact['id']) . '">';
-                        echo '<input type="submit" name="delete" class="btn-red-admin2 value="Supprimer">';
+                        echo '<input type="submit" name="delete" class="btn-red-admin2" value="Supprimer" onclick="return confirmDelet()">';
                         echo '</form>';
                         echo '</td>';
                         echo '</tr>';

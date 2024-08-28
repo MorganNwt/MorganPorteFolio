@@ -1,6 +1,6 @@
 <?php
-    require_once '../services/db_admin_users.php';
     require_once '../services/db_admin.php';
+    require_once '../services/db_admin_users.php'; 
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/admin.css">
     <link rel="stylesheet" href="../style/admin_users.css">
+
+    <script src="../javascript/components/_confirm_delet.js" defer></script>
 </head>
 <body>
     <header>
@@ -33,41 +35,51 @@
         </div>
         
         <table class="border">
-    <tr>
-        <th class="border">Id</th>
-        <th class="border">Nom</th>
-        <th class="border">Prenom</th>
-        <th class="border">Email</th>
-        <th class="border">Adresse</th>
-        <th class="border">Date de Naissance</th>
-        <th class="border">Rôle</th>
-        <th class="border">Supprimer</th>
-    </tr>
+            <tr>
+                <th class="border">Id</th>
+                <th class="border">Nom</th>
+                <th class="border">Prenom</th>
+                <th class="border">Email</th>
+                <th class="border">Adresse</th>
+                <th class="border">Date de Naissance</th>
+                <th class="border">Rôle</th>
+                <th class="border">Modifier le Rôle</th>
+                <th class="border">Supprimer</th>
+            </tr>
 
-    <?php
-        // Affichage des données
-        foreach($users_infos as $user_info){
-            echo '<tr class="border">';  
-            echo '<td class="border">' . htmlspecialchars($user_info['id'] ?? '') . '</td>';
-            echo '<td class="border">' . htmlspecialchars($user_info['nom'] ?? '') . '</td>';
-            echo '<td class="border">' . htmlspecialchars($user_info['prenom'] ?? '') . '</td>';
-            echo '<td class="border">' . htmlspecialchars($user_info['email'] ?? '') . '</td>';
-            echo '<td class="border">' . htmlspecialchars($user_info['adresse'] ?? '') . '</td>';
-            echo '<td class="border">' . htmlspecialchars($user_info['date_naissance'] ?? '') . '</td>';
-            echo '<td class="border">' . htmlspecialchars($user_info['role_name'] ?? '') . '</td>';
-            echo '<td class="border">';
-            echo '<form action="admin_form_contact.php" method="POST">';
-            echo '<input type="hidden" name="id" value="' . htmlspecialchars($user_info['id'] ?? '') . '">';
-            echo '<input type="submit" name="delete" class="btn-red-admin2" value="Supprimer">';
-            echo '</form>';
-            echo '</td>';
-            echo '</tr>';
-        }
-    ?>
-</table>
+            <?php foreach($users_infos as $user_info): ?>
+                <tr class="border">
+                    <td class="border"><?= htmlspecialchars($user_info['id'] ?? '') ?></td>
+                    <td class="border"><?= htmlspecialchars($user_info['nom'] ?? '') ?></td>
+                    <td class="border"><?= htmlspecialchars($user_info['prenom'] ?? '') ?></td>
+                    <td class="border"><?= htmlspecialchars($user_info['email'] ?? '') ?></td>
+                    <td class="border"><?= htmlspecialchars($user_info['adresse'] ?? '') ?></td>
+                    <td class="border"><?= htmlspecialchars($user_info['date_naissance'] ?? '') ?></td>
+                    <td class="border"><?= htmlspecialchars($user_info['role_name'] ?? '') ?></td>
+                    <td class="border">
+                        <form action="admin_users.php" method="POST">
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($user_info['id'] ?? '') ?>">
+                            <select name="role">
+                                <?php foreach($roles as $role): ?>
+                                    <option value="<?= $role['id'] ?>" <?= $user_info['role_id'] == $role['id'] ? 'selected' : '' ?>>
+                                        <?= htmlspecialchars($role['role_name']) ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                            <input type="submit" name="update_role" class="btn-green-admin" value="Modifier">
+                        </form>
+                    </td>
+                    <td class="border">
+                        <form action="admin_users.php" method="POST">
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($user_info['id'] ?? '') ?>">
+                            <input type="submit" name="delete" class="btn-red-admin2" value="Supprimer" onclick="return confirmDelet()">
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
     </main>
     <footer>
-        <!-- inclusion du bas de page du site -->
         <?php require_once(__DIR__ . '/../components/_footer.php'); ?>
     </footer>
 </body>
