@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="../style/admin.css">
     <link rel="stylesheet" href="../style/admin_users.css">
 
-    <script src="../javascript/components/_confirm_delet.js" defer></script>
+    <script src="../javascript/components/_confirm_delete.js" defer></script>
+    <script src="../javascript/components/_auto_load_role.js" defer></script>
 </head>
 <body>
     <header>
@@ -55,24 +56,26 @@
                     <td class="border"><?= htmlspecialchars($user_info['email'] ?? '') ?></td>
                     <td class="border"><?= htmlspecialchars($user_info['adresse'] ?? '') ?></td>
                     <td class="border"><?= htmlspecialchars($user_info['date_naissance'] ?? '') ?></td>
-                    <td class="border"><?= htmlspecialchars($user_info['role_name'] ?? '') ?></td>
+                    <td class="border" id="role-display-<?= htmlspecialchars($user_info['id'] ?? '') ?>">
+                        <?= htmlspecialchars($user_info['role_name'] ?? '') ?>
+                    </td>
                     <td class="border">
-                        <form action="admin_users.php" method="POST">
-                            <input type="hidden" name="id" value="<?= htmlspecialchars($user_info['id'] ?? '') ?>">
-                            <select name="role">
-                                <?php foreach($roles as $role): ?>
-                                    <option value="<?= $role['id'] ?>" <?= $user_info['role_id'] == $role['id'] ? 'selected' : '' ?>>
-                                        <?= htmlspecialchars($role['role_name']) ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-                            <input type="submit" name="update_role" class="btn-green-admin" value="Modifier">
-                        </form>
+                        <!-- Sélecteur de rôle et bouton AJAX -->
+                        <select id="role-select-<?= htmlspecialchars($user_info['id'] ?? '') ?>" name="role">
+                            <?php foreach($roles as $role): ?>
+                                <option value="<?= $role['id'] ?>" <?= $user_info['role_id'] == $role['id'] ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($role['role_name']) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <button class="update-role-btn btn-green-admin" data-user-id="<?= htmlspecialchars($user_info['id'] ?? '') ?>">
+                            Modifier
+                        </button>
                     </td>
                     <td class="border">
                         <form action="admin_users.php" method="POST">
                             <input type="hidden" name="id" value="<?= htmlspecialchars($user_info['id'] ?? '') ?>">
-                            <input type="submit" name="delete" class="btn-red-admin2" value="Supprimer" onclick="return confirmDelet()">
+                            <input type="submit" name="delete" class="btn-red-admin2" value="Supprimer" onclick="return confirmDelete()">
                         </form>
                     </td>
                 </tr>

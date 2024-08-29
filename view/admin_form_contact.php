@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/admin_form_contact.css">
 
-    <script src="../javascript/components/_confirm_delet.js"defer></script>
+    <script src="../javascript/components/_confirm_delete.js"defer></script>
 </head>
 <body>
     <header>
@@ -54,7 +54,7 @@
                         echo '<td class="border">'; // Cellule pour les actions
                         echo '<form  action="admin_form_contact.php" method="POST">';
                         echo '<input type="hidden" name="id" value="' . htmlspecialchars($form_contact['id']) . '">';
-                        echo '<input type="submit" name="delete" class="btn-red-admin2" value="Supprimer" onclick="return confirmDelet()">';
+                        echo '<input type="submit" name="delete" class="btn-red-admin2" value="Supprimer" onclick="return confirmDelete()">';
                         echo '</form>';
                         echo '</td>';
                         echo '</tr>';

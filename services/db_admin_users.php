@@ -38,10 +38,19 @@
             $stmt_update->bindParam(':user_id', $user_id, PDO::PARAM_INT);
             $stmt_update->execute();
 
-            echo '<p>Rôle mis à jour avec succès.</p>';
-        } catch (Exception $e) {
-            echo '<p>Erreur lors de la mise à jour du rôle : ' . $e->getMessage() . '</p>';
+            // Récupérer le nom du nouveau rôle
+            $requete_get_role = 'SELECT role_name FROM roles WHERE id = :role_id';
+            $stmt_get_role = $pdo->prepare($requete_get_role);
+            $stmt_get_role->bindParam(':role_id', $new_role_id, PDO::PARAM_INT);
+            $stmt_get_role->execute();
+            $role_name = $stmt_get_role->fetchColumn();
+
+            // Réponse JSON
+            echo json_encode(['success' => true, 'new_role_name' => $role_name]);
+         } catch (Exception $e) {
+            echo json_encode(['success' => false, 'error' => $e->getMessage()]);
         }
+        exit; // Arrêter l'exécution ici pour les requêtes AJAX
     }
 
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete'])){
