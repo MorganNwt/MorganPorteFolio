@@ -30,7 +30,6 @@ h1 {
   font-size: 50px;
   color: #a5b4fc;
   font-family: 'Montserrat', sans-serif;
-  margin-right: -80px;
 }
 
 p,
@@ -94,7 +93,11 @@ img {
   font-size: 1.5em;
   justify-content: center;
   text-decoration: none;
-  border-radius: 0.3em;
+  border-radius: 0.5em;
+}
+
+.btn-red:hover{
+  opacity: 0.5;
 }
 
 .red {
@@ -103,4 +106,38 @@ img {
 
 .green {
   color: rgb(15, 240, 15);
+}
+
+.nav-flex{
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-deconnexion{
+  width: 6em;
+  height: 5em;
+}
+
+.nav-deconnexion:hover{
+  opacity: 0.5;
+}
+
+
+.nav-log{
+  color: #1f2039;
+}
+
+.nav-bar{
+  border: 1px white solid;
+  color: white;
+  background-color: #1f2039;
+  border-radius: 0.5em;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+  height: 1em;
+}
+
+.nav-bar:hover{
+  opacity: 0.5;
 }

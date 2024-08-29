@@ -30,7 +30,7 @@
         <?php require_once(__DIR__ . '/../components/_header.php'); ?> 
     </header>
     <main>
-        <h1>Gestion des utilisateurs</h1>
+        <h1>Admin : gestion des utilisateurs</h1>
         <div class="flex-admin">
             <a href="admin.php" class="btn-red-admin1">Retour</a>
         </div>
