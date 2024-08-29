@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/admin_form_contact.css">
 
-    <script src="../javascript/components/_confirm_delet.js"></script>
+    <script src="../javascript/components/_confirm_delet.js"defer></script>
 </head>
 <body>
     <header>

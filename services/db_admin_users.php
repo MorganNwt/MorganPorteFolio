@@ -43,3 +43,19 @@
             echo '<p>Erreur lors de la mise à jour du rôle : ' . $e->getMessage() . '</p>';
         }
     }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete'])){
+        try{
+            $user_id = $_POST['id'];
+
+            // Requête DELETE pour supprimer les utilisateurs
+            $requete_delete ='DELETE FROM users where id = :id';
+            $stmt_delete = $pdo->prepare($requete_delete);
+            $stmt_delete->bindParam(':id', $user_id, PDO::PARAM_INT);
+            $stmt_delete->execute();
+
+            echo'<p> Utilisateur supprimer avec succès</p>';
+        }catch(Exception $e){
+            echo'<p>Erreur pendant la suppression de l\'utilisateur : ' . $e->getMessage() .'</p>';
+        }
+    }

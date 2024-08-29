@@ -1,9 +1,7 @@
 <?php
     session_start();
+    require_once 'db_pdo.php';
 
-    // Import des ressources
-    require_once 'db_pdo.php'; // Assurez-vous que $pdo est défini ici
-    
     // Récupérer les données issues du formulaire APRES validation
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Filtrer les entrées
@@ -72,6 +70,25 @@
             $stmt_infos_users->bindParam(':adresse', $adresse);
             $stmt_infos_users->bindParam(':date_naissance', $date_naissance);
             $stmt_infos_users->execute();
+    
+            // Requête pour obtenir l'ID du rôle "ROLE_USER"
+            $requete_role_user = 'SELECT id FROM roles WHERE role_name = :role_name';
+            $stmt_role_user = $pdo->prepare($requete_role_user);
+            $role_name = 'ROLE_USER'; // Le nom du rôle par défaut
+            $stmt_role_user->bindParam(':role_name', $role_name);
+            $stmt_role_user->execute();
+            $role_id = $stmt_role_user->fetchColumn();
+    
+            if (!$role_id) {
+                throw new Exception("Échec de la récupération de l'ID du rôle 'ROLE_USER'.");
+            }
+    
+            // Requête d'insertion dans la table user_roles pour attribuer le rôle par défaut
+            $requete_user_roles = 'INSERT INTO user_roles (users_id, role_id) VALUES (:users_id, :role_id)';
+            $stmt_user_roles = $pdo->prepare($requete_user_roles);
+            $stmt_user_roles->bindParam(':users_id', $user_id);
+            $stmt_user_roles->bindParam(':role_id', $role_id);
+            $stmt_user_roles->execute();
     
             // Valider la transaction
             $pdo->commit();
