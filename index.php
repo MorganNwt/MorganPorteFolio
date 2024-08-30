@@ -1,11 +1,10 @@
 <?php
-    require_once 'services/db_admin.php';
+    session_start();
     require_once 'services/db_index.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="fr-FR">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

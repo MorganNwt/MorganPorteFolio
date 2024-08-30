@@ -1,7 +1,5 @@
 <?php
-    // Commencer la session
     session_start();
-
     // Détruire toutes les données de la session
     session_destroy();
 

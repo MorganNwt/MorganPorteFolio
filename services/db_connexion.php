@@ -38,7 +38,7 @@
     
         // Exécuter la requête SELECT si les champs sont valides
         if (empty($errors['email']) && empty($errors['passwd'])) {
-            $sql = 'SELECT id, passwd FROM USERS WHERE email = :email';
+            $sql = 'SELECT u.id, u.passwd, i.prenom FROM USERS u JOIN INFOS_USERS i ON u.id = i.users_id WHERE email = :email';
     
             if (isset($pdo)) {
                 $db_statement = $pdo->prepare($sql);
@@ -48,9 +48,13 @@
                 $data = $db_statement->fetch(PDO::FETCH_ASSOC);
     
                 if ($data && password_verify($passwd, $data['passwd'])) {
+                    // Stocker l'ID et le prénom dans la session
                     $_SESSION['userId'] = $data['id'];
+                    $_SESSION['userPrenom'] = $data['prenom'];
+                    
                     header('Location: ../index.php');
                     exit();
+
                 } else {
                     $message = "<span class='message'>Mot de passe incorrect ou utilisateur non trouvé !</span>";
                 }
