@@ -18,3 +18,8 @@ document.querySelector('.popup_image').onclick = (event) => {
         event.currentTarget.style.display = 'none';
     }
 }
+
+// Close the pop-up when clicking on the close button (span)
+document.querySelector('.popup_image span').onclick = (event) => {
+    document.querySelector('.popup_image').style.display = 'none';
+}

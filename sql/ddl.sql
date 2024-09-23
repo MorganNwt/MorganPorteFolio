@@ -9,6 +9,7 @@ DROP TABLE IF EXISTS formulaire_contact;
 
 CREATE TABLE `users` (
   `id` integer PRIMARY KEY AUTO_INCREMENT,
+  `pseudo` varchar(255),
   `email` varchar(255),
   `passwd` varchar(255)
 );
@@ -17,7 +18,9 @@ CREATE TABLE `infos_users` (
   `id` integer PRIMARY KEY AUTO_INCREMENT,
   `nom` varchar(255),
   `prenom` varchar(255),
-  `adresse` varchar(255),
+  `rue` varchar(255),
+  `cp` integer(10),
+  `ville` varchar(255),
   `date_naissance` date,
   `users_id` integer
 );
@@ -33,7 +36,7 @@ CREATE TABLE `user_roles` (
 );
 
 CREATE TABLE `formulaire_contact` (
-  `id` integer PRIMARY KEY,
+  `id` integer PRIMARY KEY AUTO_INCREMENT,
   `nom` varchar(255),
   `prenom` varchar(255),
   `email` varchar(255),

@@ -57,6 +57,7 @@
                     <input type="password" name="confirm_passwd" id="confirm_passwd" placeholder="Confirmez votre mot de passe">
                     <ul class="margin_top">
                         <li id="match" class="red">Doit être identique</li>
+                    </ul>
                 </div>
                 <div class="form_column">
                     <label for="nom">Nom <span class="red">*</span></label>
