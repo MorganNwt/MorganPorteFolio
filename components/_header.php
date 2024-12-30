@@ -16,6 +16,7 @@
     <div class="nav-flex">
         <?php if (!isset($_SESSION['userId'])): ?>
             <a href="/index.php" class="nav-bar">Accueil</a>
+            <a href="https://cvdesignr.com/p/64ae77d933f39" class="nav-bar">CV</a>
             <a href="/view/a_propos.php" class="nav-bar">À propos</a>
             <a href="/view/gallerie_photos.php" class="nav-bar">Gallerie Photos</a>
             <a href="/index.php#jeux" class="nav-bar">Jeux</a>
@@ -23,7 +24,6 @@
             <a href="/view/inscription.php" class="nav-bar">Inscription</a>
         <?php else : ?>
             <a href="/index.php" class="nav-bar">Accueil</a>
-            <a href="https://cvdesignr.com/p/64ae77d933f39" class="nav-bar">CV</a>
             <a href="/view/a_propos.php" class="nav-bar">À propos</a>
             <a href="/view/gallerie_photos.php" class="nav-bar">Gallerie Photos</a>
             <a href="/index.php#jeux" class="nav-bar">Jeux</a>
