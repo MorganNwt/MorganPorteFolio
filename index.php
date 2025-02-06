@@ -1,12 +1,10 @@
 <?php
-    //require_once 'services/db_admin.php';
-    // TODO : bug de la deconnexion sur la page index seulement.
+    session_start();
+    require_once 'services/db_index.php';
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr-FR">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,34 +23,8 @@
 
 <body>
     <header>
-        <nav>
-            <a href="../index.php" class="lien_icone">
-                <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
-            </a>
-            <?php
-                if ($loginUser) {
-                    // Sécurise le login pour éviter les injections XSS
-                    $login = htmlspecialchars($loginUser['prenom']); 
-                    echo "Bonjour $login !!!";
-                }else{
-                    echo "Utilisateur non trouvé.";
-                }
-            ?>
-            <div>
-                <a href="index.php" class="lien_icone">Accueil</a>
-                <?php if (!isset($userId)): ?>
-                    <a href="view/connect.php" class="lien_icone">Connexion</a>
-                    <a href="/view/inscription.php" class="lien_icone">Inscription</a>
-                <?php endif; ?>
-                <a href="view/a_propos.php" class="lien_icone">À propos</a>
-                <a href="view/projets.php" class="lien_icone">Projets</a>
-                <a href="#jeux" class="lien_icone">Jeux</a>
-                <?php if (isset($userId)): ?>
-                    <a href="view/admin.php" class="box-3">Admin</a>
-                    <a href="services/db_deconnexion.php" class="box-3">Déconnexion</a>
-                <?php endif; ?>
-            </div>
-        </nav>
+           <!-- inclusion du haut de page du site -->
+        <?php require_once(__DIR__ . '/components/_header.php'); ?> 
     </header>
     <main>
         <section class="accueil_introduction">
@@ -95,7 +67,7 @@
 
             <h2>Parlons de votre projet ! </h2>
             
-            <form action="services/db_index.php" method="POST">
+            <form action="#" method="POST">
                 <div class="form_nom_email">
                     <div class="form_column">
                         <label for="nom">Nom <span class="red">*</span></label>
@@ -113,7 +85,7 @@
                     </div>
                     <div class="form_column">
                         <label for="telephone">Téléphone</label>
-                        <input type="tel" name="telephone" id="telephone" placeholder="06 00 00 00 00">
+                        <input type="tel" name="telephone" id="telephone" placeholder="0622466328">
                     </div>
                 </div>
                 <div class="form_column">
@@ -129,20 +101,8 @@
 
     </main>
     <footer>
-
-        <a href="../index.php" class="lien_icone">
-            <img src="../images/logoM1.png" alt="Logo de NAWROT Morgan">
-        </a>
-
-        <div>
-            <a target="_blank" href="https://twitter.com/" class="lien_icone">
-                <img src="images/twitter.png" alt="Logo Twitter" >
-            </a>
-            <a target="_blank" href="https://www.instagram.com/" class="lien_icone">
-                <img src="images/instagram.png" alt="Logo Instagram" >
-            </a>
-        </div>
-
+        <!-- inclusion du bas de page du site -->
+        <?php require_once(__DIR__ . '/components/_footer.php'); ?>
     </footer>
 </body>
 </html>

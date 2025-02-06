@@ -1,12 +1,22 @@
+.test {
+  border: 1px rgb(80, 161, 33) solid;
+}
 
 * {
   margin: 0;
 }
 
 body {
+  display: flex;
+  flex-direction: column; /* Alignement vertical des éléments enfants */
+  min-height: 100vh; /* Hauteur minimale de 100% de la hauteur de la fenêtre */
   font-family: 'Manrope', sans-serif;
   font-size: 1em;
   background-color: #1f2039;
+}
+
+main {
+  flex: 1; /* Prend tout l'espace restant disponible entre le header et le footer */
 }
 
 a {
@@ -23,7 +33,6 @@ h1 {
   font-size: 50px;
   color: #a5b4fc;
   font-family: 'Montserrat', sans-serif;
-  margin-right: -80px;
 }
 
 p,
@@ -75,13 +84,63 @@ img {
   border-radius: 5px;
 }
 
-.red{
+.size_img {
+  width: 50px;
+}
+
+.btn-red {
+  padding: 0.3em;
+  border: rgb(255, 252, 252) 2px solid;
+  background-color: #971616;
+  color: white;
+  font-size: 1.5em;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 0.5em;
+}
+
+.btn-red:hover{
+  opacity: 0.5;
+}
+
+.red {
   color: red;
 }
 
-/*  style css pour le white/dark mod */
-
-.size_img{
- width: 50px;
+.green {
+  color: rgb(15, 240, 15);
 }
 
+.nav-flex{
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-deconnexion{
+  width: 6em;
+  height: 5em;
+}
+
+.nav-deconnexion:hover{
+  opacity: 0.5;
+}
+
+
+.nav-log{
+  color: #1f2039;
+}
+
+.nav-bar{
+  border: 1px white solid;
+  color: white;
+  background-color: #1f2039;
+  border-radius: 0.5em;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+  height: 1em;
+}
+
+.nav-bar:hover{
+  opacity: 0.5;
+}
